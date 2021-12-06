@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="testautopercent" id="testAutoPercent">
+    <h2>Calculate Extra Assignments</h2><br>
+    <label class="pointlabel">Points Earned on Assignment:</label><br>
+    <input id="earned" class="earned" type="text" min="0"><br>
+    <label class="totallabel">Total Points of Assignment:</label><br>
+    <input id="total" class="total" type="text" min="0"><br>
+    <br>
+    <button id="calculate" class="calculate">Calculate</button>
+  </div>
+</body>
+<script>const calculate = document.getElementById("calculate")
+const onlyNumbers = "^[0-9]+$"
+
+calculate.addEventListener("click", function() {
+  const cearned = 56
+  const ctotal = 60
+  const pearned = document.getElementById("earned").value
+  const ptotal = document.getElementById("total").value
+
+
+  function onlyAllowNumbers(val) {
+    let ASCIICode = (val.which) ? val.which : val.keyCode
+    if (ASCIICode > 31 && (ASCIICode < 48 || ASCIICode > 57))
+      return false;
+    return true;
+  }
+  if (pearned.match(onlyNumbers) && ptotal.match(onlyNumbers)) {
+  	console.log("Test")
+  }
+
+  let cpercent = (cearned / ctotal) * 100
+  let apercent = pearned / ptotal
+
+  let nearned = cearned + pearned
+  let ntotal = ctotal + ptotal
+
+  let npercent = nearned / ntotal
+
+  console.log(`${cpercent}--${apercent}--${npercent}--${Math.ceil(cpercent * 100) / 100}`)
+})
+</script>
+<style>body {
+  background-image: url("https://raw.githubusercontent.com/26Gthomas/CSS-Things/main/Site%20Background.svg");
+  background-size: contain;
+  background-repeat: repeat;
+}
+
+.testautopercent {
+  border: 0.15rem solid #fff;
+  border-radius: 0.5rem;
+  background: #1b2022;
+  width: 450px;
+}
+
+h2 {
+  font-family: 'Source Sans Pro', sans-serif !important;
+  text-decoration: underline;
+  color: #fff !important;
+  position: relative;
+  width: 300px;
+  left: 75px;
+  float: center;
+}
+
+.calculate {
+  width: 140px;
+  height: 30px;
+  position: relative;
+  background-color: #1b2022 !important;
+  float: right;
+  bottom: 35px;
+  right: 4px;
+  color: #fff;
+  font-family: 'Source Sans Pro', sans-serif !important;
+  font-weight: 600 !important;
+  font-size: 16px;
+  border: 0.15rem solid #fff;
+  border-radius: 0.5rem;
+}
+
+.pointlabel, .totallabel {
+  color: #fff;
+  font-family: 'Source Sans Pro', sans-serif !important;
+  font-weight: 550;
+  margin-left: 5px;
+}
+
+.earned {
+  border: 0.5rem #fff !important;
+  border-radius: 0.2rem;
+  margin-left: 10px;
+  margin-top: 2px;
+  margin-bottom: 20px;
+  height: 25px;
+}
+
+.total {
+  border: 0.5rem #fff !important;
+  border-radius: 0.2rem;
+  margin-left: 10px;
+  margin-top: 2px;
+  height: 25px;
+}
+</style>
+</html>
